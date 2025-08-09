@@ -1,0 +1,8 @@
+{
+  "name": "expo-push-notification-vercel",
+  "version": "1.0.0",
+  "main": "api/sendPushNotification.js",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
