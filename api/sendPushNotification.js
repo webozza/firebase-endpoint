@@ -1,8 +1,10 @@
-const fetch = require("node-fetch"); // Ensure you have node-fetch installed
+const functions = require("firebase-functions");
+const fetch = require("node-fetch"); // Make sure you have node-fetch installed
 
-const EXPO_PUSH_URL = "https://exp.host/--/api/v2/push/send";
+const EXPO_PUSH_URL = "https://exp.host/--/api/v2/push/send"; // Expo Push API URL
 
-module.exports = async (req, res) => {
+// Firebase Cloud Function to send notification to Expo push token
+exports.sendPushNotification = functions.https.onRequest(async (req, res) => {
   const { expoPushToken, title, body, data } = req.body;
 
   // Validate the request body
@@ -43,4 +45,4 @@ module.exports = async (req, res) => {
     console.error("Error sending push notification:", error);
     return res.status(500).send("Error sending push notification");
   }
-};
+});
